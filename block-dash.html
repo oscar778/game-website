@@ -3,6 +3,7 @@
 
 <head>
     <title>Block Dash!</title>
+    <meta name="viewport" content= "width=device-width, user-scalable=no">
 </head>
 
 <body>
@@ -219,7 +220,7 @@
             player.keyPress(keyInfo);
         }, false);
 
-        canvas.addEventListener("click", function (info) {
+        canvas.addEventListener("touchstart", function (info) {
             player.keyPress(info);
         });
         function tick() {
