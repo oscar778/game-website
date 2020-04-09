@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Timer</title>
+</head>
+
+<body>
+    <div id="timer">
+        <div>
+            <input type="radio" name="type" value="a" onclick="clickedType(this)"><label>Alarm</label>
+            <input type="radio" name="type" value="t" onclick="clickedType(this)"><label>Timer</label>
+        </div>
+        <div>
+            <input type="number" name="hour" value="0" min="0" max="24">
+            <input type="number" name="minutes" value="0" min="0" max="60">
+            <input type="number" name="seconds" value="0" min="0" max="60">
+        </div>
+        <div>
+            <h3>Current time:</h3>
+            <p id="display">
+                <span id="hours">??</span>
+                <span>:</span>
+                <span id="minutes">??</span>
+                <span>:</span>
+                <span id="seconds">??</span>
+            </p>
+        </div>
+    </div>
+    <script type="text/javascript">
+        const p = document.getElementById("display");
+        const spanHours = p.querySelector("#hours");
+        const spanMinutes = p.querySelector("#minutes");
+        const spanSeconds = p.querySelector("#seconds");
+         function clickedType(input) {
+             console.log("clickType", input.value);
+         }
+         function showCurrentTime() {
+             const currentTime = new Date();
+             const hours = currentTime.getHours();
+             const minutes = currentTime.getMinutes();
+             const seconds = currentTime.getSeconds();
+            //  console.log("showCurrentTime: ", hours, minutes, seconds);
+             spanHours.innerHTML = hours;
+             spanMinutes.innerHTML = minutes;
+             spanSeconds.innerHTML = seconds;
+         }
+         showCurrentTime();
+         const currentTimeTimer = setInterval(showCurrentTime, 1000);
+    </script>
+</body>
+
+</html>
